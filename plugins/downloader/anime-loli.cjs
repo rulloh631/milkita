@@ -1,7 +1,7 @@
 var handler = async (m, {
-  conn
+	conn
 }) => {
-  await conn.sendFile(m.chat, API('xzn','api/loli', {}, 'apikey'), '', '_loli_', m)
+	await conn.sendFile(m.chat, API('xzn', 'api/loli', {}, 'apikey'), '', '_loli_', m)
 }
 handler.help = handler.command = ['loli']
 handler.tags = ['anime']

@@ -20,7 +20,7 @@ var handler = async (m, {
 			if (!audio) throw 'Can\'t download audio!'
 			var set = '-vn -c:a libopus -b:a 128k -vbr on -compression_level 10'
 			var ran = (new Date * 1) + '.mp3'
-			var media = path.join(__dirname, '../tmp/' + ran)
+			var media = path.join(__dirname, '../../tmp/' + ran)
 			var filename = media + '.opus'
 			await fs.promises.writeFile(media, audio)
 			exec(`ffmpeg -i ${media} ${set} ${filename}`, async (err) => {

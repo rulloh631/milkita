@@ -1,7 +1,7 @@
 /*var handler = async (m, { text, conn }) => {
-  const delay = time => new Promise(res => setTimeout(res,time))
+  var delay = time => new Promise(res => setTimeout(res,time))
   if (!text) throw 'negara mana cuba';
-  let body = text.replace(/\s+/g, '+')
+  var body = text.replace(/\s+/g, '+')
   try {
     xzn = await axios.get(API('xzn','api/y2mate', {url: body}, 'apikey'));
     a = await xzn.data;

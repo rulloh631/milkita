@@ -1,6 +1,8 @@
 var timeout = 60000
 var poin = 2000
-var { sticker } = require('../../lib/sticker.cjs')
+var {
+	sticker
+} = require('../../lib/sticker.cjs')
 var handler = async (m, {
 	conn,
 	usedPrefix

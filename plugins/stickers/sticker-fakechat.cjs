@@ -53,7 +53,7 @@ var handler = async (m, {
 		}, 'apikey'), {
 			responseType: "arraybuffer"
 		})
-		var stiker = await sticker(json, global.packname, global.author)
+		var stiker = await sticker(json.data, global.packname, global.author)
 		if (stiker) return conn.sendFile(m.chat, stiker, 'Quotly.webp', '', m)
 	} catch (e) {
 		log({

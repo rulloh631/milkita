@@ -1,6 +1,8 @@
 import db from '../../lib/database.js'
 
-let handler = async (m, { conn }) => {
+var handler = async (m, {
+	conn
+}) => {
 	conn.reply(m.chat, `
 *DAFTAR HASH*
 \`\`\`

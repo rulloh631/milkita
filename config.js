@@ -12,6 +12,11 @@ import {
 } from 'url'
 import moment from 'moment-timezone'
 import md5 from 'md5';
+import {
+	protoType,
+	serialize
+} from './lib/simple.js';
+protoType();
 global.md5 = md5;
 global.fromBuffer = fileTypeFromBuffer
 global.stream = fileTypeStream
@@ -111,7 +116,7 @@ function ucapan() {
 }
 
 // Message filter
-const usedCommandRecently = new Set()
+var usedCommandRecently = new Set()
 
 /**
  * Check is number filtered.
@@ -147,7 +152,12 @@ global.thumb = async function thumb(url, text, attribute) {
 		renderLargerThumbnail: attribute && attribute.length > 1 ? attribute[1] : false // false
 	}
 }
-
+global.pmenus = ["乂", "◈", "➭", "ଓ", "⟆•", "⳻", "•", "↬", "◈", "⭑", "ᯬ", "◉", "᭻", "»", "〆", "々", "⛥", "✗", "⚜", "⚚", "♪"].getRandom()
+global.htjava = ["乂", "⛶", "❏", "⫹⫺", "☰", "⎔", "✦", "⭔", "⬟", "⛊", "⚝"].getRandom()
+global.cmenut = htjava + "───『"
+global.cmenuh = "』───" + htjava
+global.cmenub = "│" + pmenus
+global.cmenuf = "╰──────────⳹"
 global.htki = '––––––『' // Hiasan Titile (KIRI)
 global.htka = '』––––––' // Hiasan Title  (KANAN)
 global.lopr = 'Ⓟ' //LOGO PREMIUM ON MENU.JS

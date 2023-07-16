@@ -16,7 +16,7 @@ var handler = async (m) => {
 			text += `*+${rewards[reward]}* ${reward}\n`
 		}
 	m.reply(text)
-	user.lastweekly = new Date * 1
+	game.lastweekly = new Date * 1
 }
 handler.help = ['weekly']
 handler.tags = ['game']
