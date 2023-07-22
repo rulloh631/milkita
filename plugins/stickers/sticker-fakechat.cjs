@@ -36,15 +36,16 @@ var handler = async (m, {
 		img = await q.download?.()
 		if (img) media = await uploadFile(img)
 	}
-	var qwe = m.quoted && m.quoted.text ? {
+	var tkw = !trimtext && m.quoted && m.quoted.text ? m.quoted.text : trimtext
+	var qwe = trimtext && m.quoted && m.quoted.text ? {
 		qname: m.quoted.name,
 		qtext: trimqtext
 	} : {}
 
 	try {
 		var json = await axios.get(API('xzn', 'api/qc', {
-			text: trimtext,
-			username: m.name,
+			text: tkw,
+			username: !trimtext && m.quoted ? m.quoted.name : m.name,
 			avatar: await uploadFile(await getbuffer(userPfp)),
 			...(media ? {
 				"media": media

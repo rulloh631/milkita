@@ -20,7 +20,7 @@
   "author": "gweh",
   "license": "ISC",
   "dependencies": {
-    "@adiwajshing/baileys": "github:what-zit-tooyaa/Baileys",
+    "@adiwajshing/baileys": "github:what-zit-tooyaa/Baileys#master",
     "@adiwajshing/keyed-db": "^0.2.4",
     "awesome-phonenumber": "^2.70.0",
     "axios": "^0.26.1",
@@ -49,7 +49,7 @@
     "pino-pretty": "^8.0.0",
     "qrcode": "^1.5.0",
     "qrcode-terminal": "^0.12.0",
-    "readline": "^1.3.0",
+    "inquirer": "^9.2.8",
     "request-promise": "^4.2.6",
     "similarity": "^1.2.1",
     "socket.io": "^4.4.1",

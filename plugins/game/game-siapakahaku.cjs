@@ -13,7 +13,7 @@ var handler = async (m, {
 	}
 	var src
 	try {
-		var anua = await axios.get(API('xzn', '/api/game/siapakahaku', {}, 'apikey'))
+		var anua = await axios.get(API('xzn', 'api/game/siapakahaku', {}, 'apikey'))
 		src = anua.data
 		if (!src.soal) throw "error"
 	} catch (e) {

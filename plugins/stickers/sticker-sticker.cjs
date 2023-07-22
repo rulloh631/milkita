@@ -11,7 +11,8 @@ var handler = async (m, {
 	conn,
 	args,
 	usedPrefix,
-	command
+	command,
+	text
 }) => {
 	var stiker = false
 	try {
@@ -27,14 +28,14 @@ var handler = async (m, {
 				if (/webp/g.test(mime)) out = await webp2png(img)
 				else if (/video/g.test(mime)) out = await uploadFile(img)
 				if (!out || typeof out !== 'string') out = await uploadImage(img)
-				stiker = await sticker(out, global.packname, `© ${await conn.getName(m.sender)}`)
+				stiker = await sticker(out, text.split('|')[0] || global.packname, text.split('|')[1] || `© ${await conn.getName(m.sender)}`)
 			} catch (e) {
 				console.error(e)
 			} finally {
-				if (!stiker) stiker = await sticker(img, global.packname, global.author)
+				if (!stiker) stiker = await sticker(img, text.split('|')[0] || global.packname, text.split('|')[1] || global.author)
 			}
 		} else if (args[0]) {
-			if (isUrl(args[0])) stiker = await sticker(args[0], global.packname, global.author)
+			if (isUrl(args[0])) stiker = await sticker(args[0], text.split('|')[0] || global.packname, text.split('|')[1] || global.author)
 			else return m.reply('URL tidak valid!')
 		}
 	} catch (e) {

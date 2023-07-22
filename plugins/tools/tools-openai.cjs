@@ -9,6 +9,11 @@ var handler = async (m, {
 	conn.ai = conn.ai ? conn.ai : {
 		last_answer: 0
 	}
+	if (!db.data.game[m.chat]) {
+		db.data.game[m.chat] = {
+			game: {}
+		}
+	}
 	var game = db.data.game[m.chat].game
 	if (!game.ai) game.ai = {
 		is_first: true,

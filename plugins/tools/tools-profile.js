@@ -17,7 +17,7 @@ var handler = async (m, {
 		if (typeof db.data.users[who] == "undefined") {
 			db.data.users[who] = {
 				role: 'user',
-				limit: 100,
+				limit: 50,
 				exp: 0,
 				premium: false,
 				expired: 0,

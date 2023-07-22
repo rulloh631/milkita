@@ -159,6 +159,21 @@ node .
 ```
 
 ---------
+# Arguments `node . [--options]`
+
+### `--use_phone`
+
+Activate bot using phone number (no scan qr)
+
+### `--server`
+
+Used for [heroku](https://heroku.com/) or scan through website
+
+### `--db`
+
+pass mongodb url or cloud url to connect to database, by the default it will connect to database.json
+
+---------
 ### Stop the Bot
 
 ```bash

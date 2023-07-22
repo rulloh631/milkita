@@ -153,12 +153,10 @@ async function petproduction() {
 		}
 	})
 }
-cron.schedule('0 0 */2 * * *', () => {
+cron.schedule('0 0 */12 * * *', () => {
 	var useres = Object.keys(db.data.users)
 	for (var jid of useres) {
-		if (db.data.users[jid].limit < 100) {
-			db.data.users[jid].limit = 100
-		}
+		db.data.users[jid].limit = 50
 	}
 	console.log('Add Limit')
 }, {

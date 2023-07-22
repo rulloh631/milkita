@@ -12,7 +12,7 @@ var handler = async (m, {
 			conn.reply(m.chat, 'Masih ada soal belum kamu selesaikan', conn.tebakbendera[id].msg)
 			throw false
 		}
-		var anua = await axios.get(API('xzn', '/api/game/tebakbendera', {}, 'apikey'))
+		var anua = await axios.get(API('xzn', 'api/game/tebakbendera', {}, 'apikey'))
 		var json = anua.data
 		if (!json.img) throw "error"
 		// if (!json.status) throw json

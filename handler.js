@@ -63,7 +63,7 @@ export async function handler(chatUpdate) {
 				if (!('role' in user))
 					user.role = 'user'
 				if (!isNumber(user.limit))
-					user.limit = 100
+					user.limit = 50
 				if (!isNumber(user.exp))
 					user.exp = 0
 				if (!('premium' in user))
@@ -141,7 +141,7 @@ export async function handler(chatUpdate) {
 			} else
 				db.data.users[m.sender] = {
 					role: 'user',
-					limit: 100,
+					limit: 50,
 					exp: 0,
 					premium: false,
 					expired: 0,
@@ -487,7 +487,7 @@ export async function handler(chatUpdate) {
 				 else*/
 				m.exp += xp
 				if (!isPrems && plugin.limit && db.data.users[m.sender].limit < plugin.limit * 1) {
-					this.reply(m.chat, `Limit anda habis, di reset setiap 2 jam`, m)
+					this.reply(m.chat, `Limit kamu tidak cukup\nkurang ${(plugin.limit * 1) - db.data.users[m.sender].limit} limit lagi\nlimit di reset setiap 12 jam`, m)
 					continue // Limit habis
 				}
 				if (plugin.level > _user.level && !isOwner) {

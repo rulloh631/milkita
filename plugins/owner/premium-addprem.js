@@ -21,7 +21,7 @@ var handler = async (m, {
 	if (!user) {
 		db.data.users[hl[0]] = {
 			role: 'user',
-			limit: 100,
+			limit: 50,
 			exp: 0,
 			premium: false,
 			expired: 0,
