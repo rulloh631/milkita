@@ -36,7 +36,7 @@ var handler = async (m, {
 		img = await q.download?.()
 		if (img) media = await uploadFile(img)
 	}
-	var tkw = !trimtext && m.quoted && m.quoted.text ? m.quoted.text : trimtext
+	var tkw = !trimtext && m.quoted && m.quoted.text ? trimqtext : trimtext
 	var qwe = trimtext && m.quoted && m.quoted.text ? {
 		qname: m.quoted.name,
 		qtext: trimqtext
