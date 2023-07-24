@@ -399,7 +399,7 @@ export async function handler(chatUpdate) {
 					}))
 					continue
 			}
-			if (typeof plugin !== 'function')
+			if (typeof plugin !== 'function' || typeof plugin.run !== 'function')
 				continue
 			if ((usedPrefix = (match[0] || '')[0])) {
 				var noPrefix = m.text.replace(usedPrefix, '')
@@ -518,7 +518,7 @@ export async function handler(chatUpdate) {
 					__filename
 				}
 				try {
-					await plugin.call(this, m, extra)
+					await (plugin.run ? plugin.run.call(this, m, extra) : plugin.call(this, m, extra))
 					if (!isPrems)
 						m.limit = m.limit || plugin.limit || false
 				} catch (e) {

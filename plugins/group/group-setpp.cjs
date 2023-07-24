@@ -40,4 +40,4 @@ var handler = async (m, {
 }
 handler.tags = ['group']
 handler.command = handler.help = ['setpp','setppgroup']
-export default handler
+module.exports = handler

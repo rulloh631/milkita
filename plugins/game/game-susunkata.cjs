@@ -15,12 +15,8 @@ var handler = async (m, {
 	try {
 		var anua = await axios.get(API('xzn', 'api/game/susunkata', {}, 'apikey'))
 		src = anua.data
-		if (!src.soal) throw "error"
-	} catch (e) {
-		log(e.response ? e.response.data : e)
-		throw "game error"
-	}
-	var caption = `*[ s u s u n - k a t a ]*
+		if (!src.soal) throw src
+		var caption = `*[ s u s u n - k a t a ]*
 ${src.soal}
 ${src.tipe}
 
@@ -28,14 +24,18 @@ ${src.tipe}
 *[ Bonus ]* => ${poin} MP
 Ketik ${usedPrefix}hsun untuk bantuan
 	`.trim()
-	conn.susunkata[id] = [
-		await conn.reply(m.chat, caption, m),
-		src, poin,
-		setTimeout(() => {
-			if (conn.susunkata[id]) conn.reply(m.chat, `*[ t i m e o u t ]*\n🎋 Waktu habis, Jawabannya adalah *${src.jawaban}*`, conn.susunkata[id][0])
-			delete conn.susunkata[id]
-		}, timeout)
-	]
+		conn.susunkata[id] = [
+			await conn.reply(m.chat, caption, m),
+			src, poin,
+			setTimeout(() => {
+				if (conn.susunkata[id]) conn.reply(m.chat, `*[ t i m e o u t ]*\n🎋 Waktu habis, Jawabannya adalah *${src.jawaban}*`, conn.susunkata[id][0])
+				delete conn.susunkata[id]
+			}, timeout)
+		]
+	} catch (e) {
+		log(e.response ? e.response.data : e)
+		throw (e.response ? e.response.data : e)
+	}
 }
 handler.help = ['susunkata']
 handler.tags = ['game']

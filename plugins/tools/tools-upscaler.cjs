@@ -30,4 +30,4 @@ var handler = async (m, {
 }
 handler.tags = ['tools']
 handler.command = handler.help = ['upscale']
-export default handler
+module.exports = handler
