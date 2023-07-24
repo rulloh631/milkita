@@ -3,7 +3,7 @@ var handler = async(m, {
 	conn,
 	command
 }) => {
-	if (!text || !m.quoted) throw '*[ format translate ]*\n*#' + command + ' language code (default id)|text*\nexample: *#' + command + ' en|halo dunia*'
+	if (!text && !m.quoted) throw '*[ format translate ]*\n*#' + command + ' language code (default id)|text*\nexample: *#' + command + ' en|halo dunia*'
 	var teks = m.quoted && m.quoted.text ? m.quoted.text : text ? text.split('|')[1] : text
 	var language = m.quoted && m.quoted.text && text ? text : text ? text.split('|')[0] ? text.split('|')[0] : "id" : "id"
 	try {

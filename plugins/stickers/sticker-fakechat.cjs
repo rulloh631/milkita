@@ -11,7 +11,7 @@ var handler = async (m, {
 	if (!args[0] && !m.quoted)
 		return m.reply(`Please provide a text (Type or mention a message) !`)
 
-	if (m.quoted) {
+	if (m.quoted && !text) {
 		try {
 			userPfp = await conn.profilePictureUrl(m.sender, "image");
 		} catch (e) {
