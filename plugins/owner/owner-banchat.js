@@ -4,7 +4,7 @@ var handler = async (m, {
 	text,
 	isAdmin
 }) => {
-	var who
+	var who, nano
 	if (m.isGroup) {
 		if (!(isAdmin || isOwner)) return dfail('admin', m, conn)
 		if (isOwner) who = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text ? text.replace(/[^0-9]/g, '') : m.chat
@@ -21,6 +21,7 @@ var handler = async (m, {
 		nano = await conn.getName(who)
 		m.reply(`*${conn.user.name} sekarang tidak aktif dichat ${nano == undefined ? 'ini' : nano}.*`)
 	} catch (e) {
+		log(e)
 		throw `jid tidak ada didatabase!`
 	}
 }

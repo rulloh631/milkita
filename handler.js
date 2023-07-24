@@ -196,7 +196,7 @@ export async function handler(chatUpdate) {
 			var chat = db.data.chats[m.chat]
 			if (typeof chat !== 'object')
 				db.data.chats[m.chat] = {}
-			if (user) {
+			if (chat) {
 				if (!('antiLink' in chat))
 					chat.antiLink = false
 				if (!('welcome' in chat))
@@ -399,7 +399,7 @@ export async function handler(chatUpdate) {
 					}))
 					continue
 			}
-			if (typeof plugin !== 'function' || typeof plugin.run !== 'function')
+			if (typeof plugin !== 'function')
 				continue
 			if ((usedPrefix = (match[0] || '')[0])) {
 				var noPrefix = m.text.replace(usedPrefix, '')
@@ -518,7 +518,7 @@ export async function handler(chatUpdate) {
 					__filename
 				}
 				try {
-					await (plugin.run ? plugin.run.call(this, m, extra) : plugin.call(this, m, extra))
+					await plugin.call(this, m, extra)
 					if (!isPrems)
 						m.limit = m.limit || plugin.limit || false
 				} catch (e) {
