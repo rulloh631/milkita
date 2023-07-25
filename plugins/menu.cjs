@@ -33,6 +33,7 @@ var handler = async (m, {
 		'18+': '18+',
 		'weebs': 'Weebs',
 		'admin': 'Admin',
+		'group': 'Group',
 		'info': 'Info'
 	}
 

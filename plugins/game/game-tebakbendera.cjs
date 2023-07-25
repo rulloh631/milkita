@@ -27,11 +27,11 @@ var handler = async (m, {
 !!! Reply pesan ini untuk menjawab
 `.trim()
 		var c = await conn.sendFile(m.chat, await sticker(json.img, "", ""), "", "", m)
-		conn.tebakbendera[id] = {
-			msg: await conn.reply(m.chat, caption, c),
+		conn.tebakbendera[id] = [
+			await conn.reply(m.chat, caption, c),
 			json,
-			poin: poin,
-			tot: setTimeout(() => {
+			poin,
+			setTimeout(() => {
 				if (conn.tebakbendera[id]) conn.reply(m.chat, `*[ t i m e o u t ]*
 
 🎋 *kamu kalah*
@@ -39,7 +39,7 @@ var handler = async (m, {
 Ayo coba lagi🧢`, conn.tebakbendera[id].msg)
 				delete conn.tebakbendera[id]
 			}, timeout)
-		}
+		]
 	} catch (e) {
 		log(e)
 		throw 'terjadi kesalahan'

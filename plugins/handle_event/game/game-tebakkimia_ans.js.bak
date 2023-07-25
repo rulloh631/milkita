@@ -18,7 +18,7 @@ export async function before(m) {
 		// m.reply(JSON.stringify(json, null, '\t'))
 		if (m.text.toLowerCase() == json.nama.toLowerCase().trim()) {
 			global.db.data.users[m.sender].mp += this.tebakkimia[id][2]
-			conn.reply(m.chat, `*[ b e n a r ]*\n\n*[ hadiah ]* => ${this.tebakkimia[id][2]} MP\n*[ nama ]* => ${json.nama}\n*[ lambang ]* => ${json.lambang}\n*[ nomor atom ]* => ${json.nomer_atom}`, m)
+			conn.reply(m.chat, `*[ b e n a r ]*\n\n*[ hadiah ]* => ${this.tebakkimia[id][2]} MP\nn*[ nama ]* => ${json.nama}\n*[ lambang ]* => ${json.lambang}\n*[ nomor atom ]* => ${json.nomer_atom}`, m)
 			clearTimeout(this.tebakkimia[id][3])
 			delete this.tebakkimia[id]
 		} else if (similarity(m.text.toLowerCase(), json.nama.toLowerCase().trim()) >= threshold)

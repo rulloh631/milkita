@@ -6,6 +6,7 @@ var handler = async (m, {
 		var q = m.quoted ? m.quoted : m,
 			mime = (q.msg || q).mimetype || ''
 		if (/image/g.test(mime)) {
+			m.reply('*p l e a s e  w a i t. . .*')
 			var img = await uploadFile(await q.download())
 			var bf = (await axios.get(API('xzn', 'api/toanime', {
 				url: img

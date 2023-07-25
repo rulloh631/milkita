@@ -169,6 +169,14 @@ cron.schedule('0 */2 * * * *', async () => {
 	scheduled: true,
 	timezone: "Asia/Jakarta"
 });
+// Auto restart if ram usage has reached the limit, if you want to use enter the ram size in bytes
+var ramCheck = setInterval(() => {
+	var ramUsage = process.memoryUsage().rss
+	if (ramUsage >= global.ram_usage) {
+		clearInterval(ramCheck)
+		process.send('reset')
+	}
+}, 60 * 1000) // Checking every 1 minutes
 if (!opts['test']) {
 	setInterval(async () => {
 		await Promise.allSettled([

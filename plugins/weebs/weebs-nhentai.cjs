@@ -6,6 +6,7 @@ var handler = async (m, {
 	var body = text.replace(/\s+/g, '+')
 	if (!/[0-9]/.test(body)) throw ('only number')
 	try {
+		m.reply('*p l e a s e  w a i t. . .*')
 		var response = await fetch(API('xzn', 'api/nhentai', {
 			code: body
 		}, 'apikey'))
