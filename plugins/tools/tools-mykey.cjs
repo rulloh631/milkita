@@ -3,7 +3,7 @@ var handler = async (m, {
 	conn
 }) => {
 	var v = (await axios.get(API('xzn', 'checkapikey', {}, 'apikey'))).data
-	throw v
+	return v
 }
 handler.command = ['mykey'];
 handler.owner = true;
