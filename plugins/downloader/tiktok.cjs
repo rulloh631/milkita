@@ -12,17 +12,24 @@ var handler = async (m, {
 				if (!text) throw `"Format yang Anda masukkan mengalami kesalahan.\nAgar lebih mudah dipahami, gunakan tag yang benar seperti ini: ${usedPrefix}${command} id"`;
 				xzn = await fetch(API('xzn', 'api/tttrending', {
 					region: body
-				}, 'apikey'))
+				}, 'apikey'));
 				break;
 			case 'search':
 				if (!text) throw `"Format yang Anda masukkan mengalami kesalahan.\nAgar lebih mudah dipahami, gunakan tag yang benar seperti ini: ${usedPrefix}${command} cosplay.\nSelamat mengeksplorasi dunia cosplay! 🌟👾🎭"`;
 				xzn = await fetch(API('xzn', 'api/ttsearch', {
 					search: body
-				}, 'apikey'))
+				}, 'apikey'));
 				break;
 		}
-		var wtf = await xzn.json()
-		conn.sendFile(m.chat, wtf.play, '', wtf.title, m)
+		var wtf = await xzn.json();
+		conn.sendMessage(m.chat, {
+			video: {
+				url: wtf.play
+			},
+			caption: wtf.title
+		}, {
+			quoted: m
+		})
 	} catch (e) {
 		throw e.toString();
 	};
