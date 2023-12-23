@@ -34,7 +34,7 @@ var handler = async (m, {
 		throw e
 	}
 };
-handler.help = handler.command = ['filter'];
+handler.help = handler.command = ['filter', 'filter_vip'];
 handler.tags = ['weebs'];
 handler.premium = true
 module.exports = handler;
