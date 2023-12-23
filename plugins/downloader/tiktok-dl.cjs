@@ -31,7 +31,7 @@ var handler = async (m, {
 			await conn.sendFile(m.chat, vid, '', desc, m)
 		}
 	} catch (e) {
-		m.reply("mana gada hoax hoax")
+		throw e.toString();
 	};
 };
 handler.help = ['tiktok']
