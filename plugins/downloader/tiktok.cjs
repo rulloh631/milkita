@@ -1,19 +1,21 @@
 var handler = async (m, {
+	command,
+	args,
 	text,
-	conn,
-	command
+	usedPrefix
 }) => {
-	if (!text) throw 'Perihal Apah';
 	var body = text.replace(/\s+/g, '+')
 	try {
 		var xzn
 		switch (command) {
-			case 'tiktoktrend':
+			case 'tren':
+				if (!text) throw `"Format yang Anda masukkan mengalami kesalahan.\nAgar lebih mudah dipahami, gunakan tag yang benar seperti ini: ${usedPrefix}${command} id"`;
 				xzn = await fetch(API('xzn', 'api/tttrending', {
 					region: body
 				}, 'apikey'))
 				break;
-			case 'asupan':
+			case 'search':
+				if (!text) throw `"Format yang Anda masukkan mengalami kesalahan.\nAgar lebih mudah dipahami, gunakan tag yang benar seperti ini: ${usedPrefix}${command} cosplay.\nSelamat mengeksplorasi dunia cosplay! 🌟👾🎭"`;
 				xzn = await fetch(API('xzn', 'api/ttsearch', {
 					search: body
 				}, 'apikey'))
@@ -25,8 +27,8 @@ var handler = async (m, {
 		throw e.toString();
 	};
 };
-handler.help = handler.command = ['tiktoktrend', 'asupan'];
-handler.tags = ['tiktok'];
+handler.help = handler.command = ['tren', 'search'];
+handler.tags = ['download'];
 
 module.exports = handler;
 /*var [t1, t2] = body.split`|`
