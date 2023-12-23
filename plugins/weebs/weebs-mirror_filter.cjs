@@ -36,5 +36,5 @@ var handler = async (m, {
 };
 handler.help = handler.command = ['filter', 'filter_vip'];
 handler.tags = ['weebs'];
-handler.premium = true
+//handler.premium = true
 module.exports = handler;
