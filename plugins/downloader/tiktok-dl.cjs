@@ -1,6 +1,8 @@
 var handler = async (m, {
+	command,
+	args,
 	text,
-	conn
+	usedPrefix
 }) => {
 	//var delay = time => new Promise(res => setTimeout(res, time))
 	if (!text) throw `"Bagikan tautan TikTok yang telah kamu bagikan, ya! 🔗✨"`;
