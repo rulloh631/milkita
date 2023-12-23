@@ -2,8 +2,8 @@ var handler = async (m, {
 	text,
 	conn
 }) => {
-	var delay = time => new Promise(res => setTimeout(res, time))
-	if (!text) throw 'apakah sudah betul';
+	//var delay = time => new Promise(res => setTimeout(res, time))
+	if (!text) throw `"Bagikan tautan TikTok yang telah kamu bagikan, ya! 🔗✨"`;
 	var body = text.replace(/\s+/g, '+')
 	try {
 		var {
@@ -23,6 +23,7 @@ var handler = async (m, {
 				}, {
 					quoted: m
 				})
+				await delay(1500)
 			}
 		} else {
 			var vid = data.play
