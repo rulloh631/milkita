@@ -1,4 +1,4 @@
-var uploadFile = require('../lib/uploadFile.cjs');
+var uploadFile = require('../../lib/uploadFile.cjs');
 var handler = async (m, {
 	command,
 	args,
