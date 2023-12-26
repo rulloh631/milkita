@@ -35,7 +35,7 @@ var handler = async (m, {
 	};
 };
 handler.help = handler.command = ['tren', 'search'];
-handler.tags = ['download'];
+handler.tags = ['downloader'];
 
 module.exports = handler;
 /*var [t1, t2] = body.split`|`
