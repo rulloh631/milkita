@@ -28,6 +28,6 @@ var handler = async (m, {
 	}
 }
 handler.help = handler.command = ['igdl']
-handler.tags = ['instagram']
+handler.tags = ['download']
 
 module.exports = handler
