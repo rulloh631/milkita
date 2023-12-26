@@ -26,7 +26,7 @@ var handler = async (m, {
 		'tools': 'Tools',
 		'game': 'Game',
 		'audio': 'Audio Filter',
-		'instagram': 'instagram',
+		'download': 'Downloaders',
 		'premium': 'Premium',
 		'convert': 'Convert',
 		'tiktok': 'tiktok',
