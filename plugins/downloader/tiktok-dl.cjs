@@ -37,7 +37,7 @@ var handler = async (m, {
 	};
 };
 handler.help = ['tiktok']
-handler.tags = ['tiktok'];
+handler.tags = ['download'];
 handler.command = ['tiktok', 'ttdl', 'tt'];
 
 module.exports = handler;
