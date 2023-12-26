@@ -12,20 +12,20 @@ var handler = async (m, {
 				if (!text) throw `"Format yang Anda masukkan mengalami kesalahan.\nAgar lebih mudah dipahami, gunakan tag yang benar seperti ini: ${usedPrefix}${command} id"`;
 				xzn = await fetch(API('xzn', 'api/tttrending', {
 					region: body
-				}, 'apikey'));
+				}, 'apikey'))
 				break;
 			case 'search':
 				if (!text) throw `"Format yang Anda masukkan mengalami kesalahan.\nAgar lebih mudah dipahami, gunakan tag yang benar seperti ini: ${usedPrefix}${command} cosplay.\nSelamat mengeksplorasi dunia cosplay! 🌟👾🎭"`;
 				xzn = await fetch(API('xzn', 'api/ttsearch', {
 					search: body
-				}, 'apikey'));
+				}, 'apikey'))
 				break;
 		}
 		var wtf = await xzn.json();
+		var cek_bf = await fetch(wtf.play);
+		if (/text|json/.test(cek_bf.headers.get('content-type'))) throw await cek_bf.text();
 		conn.sendMessage(m.chat, {
-			video: {
-				url: wtf.play
-			},
+			video: await cek_bf.buffer(),
 			caption: wtf.title
 		}, {
 			quoted: m
@@ -35,7 +35,7 @@ var handler = async (m, {
 	};
 };
 handler.help = handler.command = ['tren', 'search'];
-handler.tags = ['downloader'];
+handler.tags = ['downloader', 'tiktok'];
 
 module.exports = handler;
 /*var [t1, t2] = body.split`|`
