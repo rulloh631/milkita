@@ -19,5 +19,5 @@ var handler = async (m, {
 };
 
 handler.help = handler.command = ['facebook', 'fb'];
-handler.tags = ['download'];
+handler.tags = ['downloader'];
 module.exports = handler;
