@@ -5,10 +5,6 @@ var handler = async (m, {
 	if (!text) throw 'Mohon berikan URL Instagram reel yang valid'
 	var url = text.replace(/\s+/g, '+')
 	try {
-	  var igUrlRegex = /^https:\/\/www\.instagram\.com\/(reel|p)\/[a-zA-Z0-9_-]+\/\?igsh=[a-zA-Z0-9_-]+$/;
-	  if (!url || !igUrlRegex.test(url)) {
-	    throw 'Mohon berikan URL Instagram yang valid';
-	  }
 		var response = await fetch(API('xzn', 'api/igdl', {
 			url: url
 		}, 'apikey'))
