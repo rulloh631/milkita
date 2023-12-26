@@ -29,8 +29,6 @@ var handler = async (m, {
 		'download': 'Downloaders',
 		'premium': 'Premium',
 		'convert': 'Convert',
-		'tiktok': 'tiktok',
-		'18+': '18+',
 		'weebs': 'Weebs',
 		'admin': 'Admin',
 		'group': 'Group',
