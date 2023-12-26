@@ -2,24 +2,30 @@ var handler = async (m, {
 	text,
 	conn
 }) => {
-	if (!text) throw 'Perihal Apah?'
+	if (!text) throw 'Mohon berikan URL Instagram reel yang valid'
 	var url = text.replace(/\s+/g, '+')
 	try {
+	  var igUrlRegex = /^https:\/\/www\.instagram\.com\/(reel|p)\/[a-zA-Z0-9_-]+\/\?igsh=[a-zA-Z0-9_-]+$/;
+	  if (!url || !igUrlRegex.test(url)) {
+	    throw 'Mohon berikan URL Instagram yang valid';
+	  }
 		var response = await fetch(API('xzn', 'api/igdl', {
-			url
+			url: url
 		}, 'apikey'))
 		var wtf = await response.json()
 		for (var i = 0; i < wtf.media.length; i++) {
 			var caption = i == 0 ? wtf.caption : ''
-			var type = wtf.media[i].includes('.jpg') ? 'image' : 'video'
-			await conn.sendMessage(m.chat, {
+			//var type = wtf.media[i].includes('.jpg') ? 'image' : 'video'
+			/*await conn.sendMessage(m.chat, {
 				[type]: {
 					url: wtf.media[i]
 				},
 				caption
 			}, {
 				quoted: m
-			})
+			})*/
+			var bf = await (await fetch(wtf.media[i])).buffer()
+			conn.sendFile(m.chat, bf, '', caption, m)
 			await delay(1500)
 		}
 	} catch (e) {
