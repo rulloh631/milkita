@@ -27,7 +27,7 @@ var handler = async (m, {
 		throw e.toString()
 	}
 }
-handler.help = handler.command = ['igdl', 'instagram']
-handler.tags = ['download']
+handler.help = handler.command = ['igdl']
+handler.tags = ['downloader']
 
 module.exports = handler
